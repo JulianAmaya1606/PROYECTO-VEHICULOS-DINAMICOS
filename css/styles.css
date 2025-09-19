@@ -1,0 +1,137 @@
+/* ===============================
+   FONDO GENERAL
+================================ */
+body {
+    background: linear-gradient(135deg, #181820, #2b2b44) !important;
+    color: #f0f0f0 !important;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    min-height: 100vh !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* ===============================
+   TÍTULOS
+================================ */
+h2 {
+    color: #4da8ff !important;
+    font-weight: 700 !important;
+    margin-bottom: 1rem !important;
+    text-align: center !important;
+    text-shadow: 0 0 10px rgba(77,168,255,0.4) !important;
+}
+
+/* ===============================
+   FORMULARIO
+================================ */
+#form {
+    background: rgba(255, 255, 255, 0.08) !important;
+    padding: 25px !important;
+    border-radius: 15px !important;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4) !important;
+    backdrop-filter: blur(6px) !important;
+}
+
+#form input {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: none !important;
+    border-radius: 8px !important;
+    color: #fff !important;
+}
+
+#form input:focus {
+    outline: none !important;
+    border: 2px solid #4da8ff !important;
+    box-shadow: 0 0 10px #4da8ff !important;
+}
+
+/* Botón agregar */
+#btnAgregar {
+    background: #4da8ff !important;
+    border: none !important;
+    font-weight: bold !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+#btnAgregar:hover {
+    background: #1d6fd1 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 15px rgba(77, 168, 255, 0.4) !important;
+}
+
+/* ===============================
+   CONTENEDOR DE TARJETAS
+================================ */
+#cont-cards {
+    background: rgba(255, 255, 255, 0.05) !important;
+    padding: 20px !important;
+    border-radius: 15px !important;
+}
+
+/* La grilla queda NORMAL con Bootstrap,
+   ya no forzamos flex ni centramos manual */
+#cont-vehiculos {
+    margin-top: 10px !important;
+}
+
+/* ===============================
+   TARJETAS
+================================ */
+.card {
+    border: none !important;
+    border-radius: 15px !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: #fff !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 12px 25px rgba(77, 168, 255, 0.3) !important;
+}
+
+/* Imagen vehículo */
+.card img {
+    border-radius: 15px 15px 0 0 !important;
+    object-fit: cover !important;
+    max-height: 180px !important;
+}
+
+/* Precio */
+.card h2 {
+    color: #4da8ff !important;
+    font-weight: 700 !important;
+    margin-top: 10px !important;
+}
+
+/* ===============================
+   BOTONES DE TARJETAS
+================================ */
+.btn-comprar {
+    background: #4da8ff !important;
+    border: none !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn-comprar:hover {
+    background: #1d6fd1 !important;
+    transform: scale(1.05) !important;
+}
+
+.btn-eliminar {
+    background: #ff4d4d !important;
+    border: none !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn-eliminar:hover {
+    background: #cc0000 !important;
+    transform: scale(1.05) !important;
+}
+/* Cambiar color del texto placeholder */
+#form input::placeholder {
+  color: rgba(255, 255, 255, 0.7) !important;
+  opacity: 1 !important; /* Bootstrap lo baja a 0.65, esto lo fuerza */
+}
