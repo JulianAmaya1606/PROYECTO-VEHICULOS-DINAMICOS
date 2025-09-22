@@ -9,6 +9,8 @@ const km = document.getElementById('kilometraje');
 const precio = document.getElementById('precio');
 const addBtn = document.getElementById("btnAgregar");
 const contPadre = document.getElementById("cont-vehiculos");
+const contCarrito = document.getElementById("cont-carrito");
+let = total = 0
 
 
 
@@ -106,23 +108,104 @@ form.addEventListener('submit', (e) => {
 });
 
 function eventsToItems(item){
-    
-    const btnComprar = item.querySelector(".btn-comprar")
-    const btnEliminar = item.querySelector(".btn-eliminar")
+    const btnComprar = item.querySelector(".btn-comprar");
+    const btnEliminar = item.querySelector(".btn-eliminar");
 
-    btnComprar.addEventListener('click',()=>{
-        alert("Nos pondremos en contacto contigo para confirmar el pago ")
+
+    btnComprar.addEventListener('click', function(){
+        const fotovl = item.querySelector("img").getAttribute("src");
+        const nombrevl = item.querySelector(".card-title"). textContent;
+        const marcavl = item.querySelector(".card-subtitle").textContent;
+        const preciovl = item.querySelector(".text-success").textContent;
+
+        const newCarritoItem = alimentarCarrito(fotovl, nombrevl, marcavl, preciovl);
+
+ 
+        document.getElementById("cont-products").appendChild(newCarritoItem);
 
     });
 
-    btnEliminar.addEventListener('click', ()=>{
+    btnEliminar.addEventListener('click', function(){
         item.remove();
     });
+
 }
 
 
 
 
+ const btnCarrito = document.getElementById("carrito")
 
 
+btnCarrito.addEventListener('click', ()=>{
+    contCarrito.classList.toggle('mostrar')
+})
+
+
+function alimentarCarrito(fotovl, nombrevl, marcavl, preciovl){
+
+    const item =document.createElement("div");
+    item.classList.add("item-vehiculo", "col-md-12");
+
+    const card = document.createElement("div");
+    card.classList.add("card", "h-100");
+
+    const rowG = document.createElement("div");
+    rowG.classList.add("row", "g-0")
+
+    const colImg = document.createElement("div");
+    colImg.classList.add("col-md-4")
+
+    const img = document.createElement("img");
+    img.classList.add("img-fluid", "rounded-start")
+    img.setAttribute("src",  fotovl)
+    
+
+    const colTexto = document.createElement("div");
+    colTexto.classList.add("col-md-8");
+
+    const cardBody = document.createElement("div");
+    cardBody.classList.add("card-body")
+
+    const tittle = document.createElement("h3");
+    tittle.classList.add("card-title");
+    tittle.textContent = nombrevl
+
+    const subTittle = document.createElement("h4");
+    subTittle.classList.add("card-subtitle", "text-muted");
+    subTittle.textContent = marcavl 
+
+    const price = document.createElement("h2");
+    price.classList.add("text-success");
+    price.textContent =preciovl;
+
+
+    const divButton = document.createElement("div");
+    divButton.classList.add("d-flex", "justify-content-between", "mt-3") 
+    
+    const btnEliminar = document.createElement("button");
+    btnEliminar.classList.add("btn", "btn-danger", "btn-eliminar", "btn-eliminar-carrito");
+    btnEliminar.textContent= "Eliminar";     
+
+        btnEliminar.addEventListener("click", function(){
+        item.remove();
+       });
+
+        item.appendChild(card);
+        card.appendChild(rowG);
+        rowG.appendChild(colImg);
+        colImg.appendChild(img);
+        rowG.appendChild(colTexto);
+        colTexto.appendChild(cardBody);
+        cardBody.appendChild(tittle);
+        cardBody.appendChild(subTittle);
+        cardBody.appendChild(price);
+        cardBody.appendChild(divButton);
+        divButton.appendChild(btnEliminar);
+
+
+        return item;
+
+
+}
 
