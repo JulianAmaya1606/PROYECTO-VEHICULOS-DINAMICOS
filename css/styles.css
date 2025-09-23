@@ -137,9 +137,10 @@ h2 {
 }
 
 #carrito {
-  position: absolute;
+  position: fixed;
   top: 20px;
   right: 20px;
+  
   width: 60px;
   height: 60px;
   z-index: 2000;
@@ -172,6 +173,29 @@ h2 {
 }
 #cont-carrito.mostrar{
    right: 0px;
+}
+#cont-carrito {
+  display: flex;
+  flex-direction: column;
+  height: 100%;      /* ocupa toda la altura de la columna */
+  border-left: 2px solid #ccc;
+  padding: 10px;
+}
+
+#cont-products {
+  overflow-y: auto;  /* solo esta parte tendrá scroll */
+  padding: 5px;
+}
+
+#total {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ffffff; /* verde-agua estilo gamer */
+  background: rgba(67, 131, 204, 0.3);
+  padding: 10px 15px;
+  border-radius: 10px;
+  display: inline-block;
+  margin-top: 10px;
 }
 
 

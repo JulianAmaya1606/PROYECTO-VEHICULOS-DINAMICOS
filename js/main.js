@@ -10,7 +10,7 @@ const precio = document.getElementById('precio');
 const addBtn = document.getElementById("btnAgregar");
 const contPadre = document.getElementById("cont-vehiculos");
 const contCarrito = document.getElementById("cont-carrito");
-let = total = 0
+let total = 0;
 
 
 
@@ -48,7 +48,7 @@ function createCard(fotovl,nombrevl,marcavl,modelovl,kmvl,preciovl){
     
     const price = document.createElement("h2");
     price.classList.add("text-success");
-    price.textContent ="$" + preciovl;
+    price.textContent = preciovl;
 
     const divButtons = document.createElement("div");
     divButtons.classList.add("d-flex", "justify-content-between", "mt-3")
@@ -122,6 +122,11 @@ function eventsToItems(item){
 
  
         document.getElementById("cont-products").appendChild(newCarritoItem);
+        let precioNumero = Number(preciovl);
+
+        total = total + precioNumero;
+
+        document.getElementById("total").textContent = "Total: $" + total
 
     });
 
@@ -187,9 +192,14 @@ function alimentarCarrito(fotovl, nombrevl, marcavl, preciovl){
     btnEliminar.classList.add("btn", "btn-danger", "btn-eliminar", "btn-eliminar-carrito");
     btnEliminar.textContent= "Eliminar";     
 
-        btnEliminar.addEventListener("click", function(){
-        item.remove();
-       });
+                btnEliminar.addEventListener("click", function(){
+            let precioNumero = Number(preciovl);  
+            total = total - precioNumero;         
+            document.getElementById("total").textContent = "Total: $" + total; 
+
+            item.remove(); 
+        });
+
 
         item.appendChild(card);
         card.appendChild(rowG);
